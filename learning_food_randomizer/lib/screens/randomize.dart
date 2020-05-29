@@ -27,7 +27,7 @@ class _RandomizeState extends State<Randomize> {
                       children: <Widget>[
                         GestureDetector(
                           onTap: (){
-                            print('asd');
+                            Navigator.pushNamed(context, 'show_food');
                           },
                           child: Image(
                             width: 130,
