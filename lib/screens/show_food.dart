@@ -9,7 +9,6 @@ class ShowFood extends StatefulWidget {
 class _ShowFoodState extends State<ShowFood> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     print('hi');
   }
