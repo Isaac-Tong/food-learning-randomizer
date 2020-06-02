@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:learningfoodrandomizer/constants.dart';
-import 'image_widget.dart';
-import 'text_widget.dart';
-import 'like_dislike_widget.dart';
 import 'package:learningfoodrandomizer/functions/http_functions.dart';
 
 class RandomFood extends StatefulWidget {
