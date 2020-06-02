@@ -162,10 +162,10 @@ class _SinglePageWidgetState extends State<SinglePageWidget> {
           margin: EdgeInsets.fromLTRB(25, 0, 25, 25),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Expanded(
-                flex: 5,
+                flex: 3,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -180,11 +180,11 @@ class _SinglePageWidgetState extends State<SinglePageWidget> {
                       ),
                     ),
                     Text(
-                      cuisineText,
+                      'Cuisine: ' + cuisineText,
                       style: TextStyle(
                         color: kLightPink,
                         fontWeight: FontWeight.normal,
-                        fontSize: 30,
+                        fontSize: 28,
                       ),
                     ),
                   ],
@@ -192,9 +192,11 @@ class _SinglePageWidgetState extends State<SinglePageWidget> {
               ),
               Expanded(
                 flex: 1,
-                child: Image(
+                child: Container(
+                  child: Image(
                     image: AssetImage('assets/cookbook_image.png'),
-                    width: 20),
+                  ),
+                ),
               ),
             ],
           ),
