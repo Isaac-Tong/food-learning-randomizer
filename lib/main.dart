@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/randomize.dart';
 import 'screens/show_food.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'screens/random_food.dart';
+import 'screens/random_food_screen/random_food.dart';
 
 void main() async {
   await DotEnv().load('.env');

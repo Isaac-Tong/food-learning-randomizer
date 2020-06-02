@@ -10,6 +10,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  animated_text_kit: ^2.2.0
   flutter_dotenv:
   http:
   flutter:

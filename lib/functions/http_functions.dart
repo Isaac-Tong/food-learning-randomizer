@@ -9,11 +9,10 @@ Future<Map> getData() async {
   return decodedData;
 }
 
-Future getImage(String food) async{
+
+//Returns a string of the URL of the passed in food string
+Future<String> getImage(String food) async{
   http.Response imageResponse = await http.get('https://eastasia.api.cognitive.microsoft.com/bing/v7.0/images/search?q="$food"&count=1', headers: {'Ocp-Apim-Subscription-Key': DotEnv().env['BING_IMAGES_AUTH']});
   Map decodedResponse = json.decode(imageResponse.body);
-
-
   return decodedResponse['value'][0]['contentUrl'];
-
 }

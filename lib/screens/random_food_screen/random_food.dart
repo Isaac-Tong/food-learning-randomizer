@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:learningfoodrandomizer/constants.dart';
+import 'image_widget.dart';
+import 'text_widget.dart';
+import 'like_dislike_widget.dart';
+import 'package:learningfoodrandomizer/functions/http_functions.dart';
 
 class RandomFood extends StatefulWidget {
   @override
@@ -7,6 +11,34 @@ class RandomFood extends StatefulWidget {
 }
 
 class _RandomFoodState extends State<RandomFood> {
+  String mainText = 'Loading';
+  String cuisineText = 'Loading';
+  String foodURL = 'https://www.heart.org/-/media/images/health-topics/congenital-heart-defects/50_1683_44a_asd.jpg?h=551&w=572&la=en&hash=60A4E57B316F13921A743143171BD2EFC7912F93';
+
+  void setData() async {
+    Map apiData = await getData();
+    //Decode the food_name from the map
+
+    setState((){
+      mainText = apiData['food_name'];
+      cuisineText = apiData['type'];
+
+    });
+
+    String returnedURL = await getImage(mainText);
+
+    setState(() {
+      foodURL = returnedURL;
+    });
+
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +63,8 @@ class _RandomFoodState extends State<RandomFood> {
                   child: FittedBox(
                     fit: BoxFit.fitHeight,
                     child: Image(
-                        image:
-                            AssetImage('assets/one-pot-paneer-curry-pie.jpg')),
+                      image: NetworkImage(foodURL),
+                    ),
                   ),
                 ),
               ),
@@ -43,29 +75,38 @@ class _RandomFoodState extends State<RandomFood> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'Lorem Ipsum',
-                        style: TextStyle(
-                            color: kPurple,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 42),
-                      ),
-                      Text(
-                        'Cuisine: Ipsum',
-                        style: TextStyle(
-                          color: kLightPink,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 30,
+                  Expanded(
+                    flex: 5,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        FittedBox(
+                          fit: BoxFit.contain,
+                          child: Text(
+                            mainText,
+                            style: TextStyle(
+                                color: kPurple,
+                                fontWeight: FontWeight.w900,
+                                fontSize: 42),
+                          ),
                         ),
-                      ),
-                    ],
+                        Text(
+                          cuisineText,
+                          style: TextStyle(
+                            color: kLightPink,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 30,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  Image(
-                      image: AssetImage('assets/cookbook_image.png'),
-                      width: 90),
+                  Expanded(
+                    flex: 1,
+                    child: Image(
+                        image: AssetImage('assets/cookbook_image.png'),
+                        width: 20),
+                  ),
                 ],
               ),
             ),
@@ -82,11 +123,8 @@ class _RandomFoodState extends State<RandomFood> {
                       ),
                       child: Padding(
                         padding: EdgeInsets.all(35),
-                        child: FittedBox(
-                          fit: BoxFit.contain,
-                          child: Image(
-                            image: AssetImage('assets/thumbs-down.png'),
-                          ),
+                        child: Image(
+                          image: AssetImage('assets/thumbs-down.png'),
                         ),
                       ),
                     ),
@@ -101,11 +139,8 @@ class _RandomFoodState extends State<RandomFood> {
                       ),
                       child: Padding(
                         padding: EdgeInsets.all(35),
-                        child: FittedBox(
-                          fit: BoxFit.contain,
-                          child: Image(
-                            image: AssetImage('assets/thumbs-up.png'),
-                          ),
+                        child: Image(
+                          image: AssetImage('assets/thumbs-up.png'),
                         ),
                       ),
                     ),
