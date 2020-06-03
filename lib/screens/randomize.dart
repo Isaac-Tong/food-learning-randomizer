@@ -13,46 +13,41 @@ class _RandomizeState extends State<Randomize> {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Expanded(
-              flex: 6,
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        GestureDetector(
-                          onTap: (){
-                            Navigator.pushNamed(context, 'show_food');
-                          },
-                          child: Image(
-                            width: 130,
-                            image: AssetImage('assets/cookbook_image.png'),
-                          ),
-                        ),
-                        Text(
-                          'click the cookbook to begin!',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: kPurple,
-                            fontFamily: 'Lato',
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                      ],
+              flex: 5,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, 'show_food');
+                    },
+                    child: Image(
+                      width: 130,
+                      image: AssetImage('assets/cookbook_image.png'),
                     ),
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Click the cookbook to begin!',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: kPurple,
+                      fontFamily: 'Lato',
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
               ),
             ),
             Expanded(
               flex: 2,
               child: Container(
-                padding: EdgeInsets.all(40),
+                padding: EdgeInsets.all(30),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [kPurple, kLightPink],
@@ -64,13 +59,16 @@ class _RandomizeState extends State<Randomize> {
                       topLeft: Radius.circular(25),
                       topRight: Radius.circular(25)),
                 ),
-                child: Text(
-                  'Randomize my food',
-                  style: TextStyle(
-                    fontSize: 50,
-                    color: Colors.white,
-                    fontFamily: 'Lato',
-                    fontWeight: FontWeight.w900,
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: Text(
+                    'Randomize my food',
+                    style: TextStyle(
+                      fontSize: 90,
+                      color: Colors.white,
+                      fontFamily: 'Lato',
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
                 ),
               ),
