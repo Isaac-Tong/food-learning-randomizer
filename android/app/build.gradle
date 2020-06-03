@@ -47,7 +47,7 @@ android {
         applicationId "com.isaactong.learningfoodrandomizer"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode flutterVersionCode.toInteger()
+        versionCode 2
         versionName flutterVersionName
     }
 
