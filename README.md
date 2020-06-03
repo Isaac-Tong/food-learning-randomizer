@@ -8,8 +8,8 @@ An android/iOS app written in Flutter that displays random dishes and foods alon
 
 ## Download the APK
 APK file can be downloaded with dropbox or from GitHub repository
-[Click to download with Dropbox](https://www.dropbox.com/s/4sqyghzurrxsllo/food_randomizer_release.apk?dl=0)
-[Click to download](https://github.com/Isaac-Tong/food-learning-randomizer/blob/master/github_readme_files/food_randomizer_release.apk)
+1. [Click to download with Dropbox](https://www.dropbox.com/s/4sqyghzurrxsllo/food_randomizer_release.apk?dl=0)
+2. [Click to download](https://github.com/Isaac-Tong/food-learning-randomizer/blob/master/github_readme_files/food_randomizer_release.apk)
 
 ## TODO
 * Local database or flutter shared preferences
