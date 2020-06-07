@@ -1,5 +1,8 @@
 # Food Randomizer
 
+## Published on the Playstore
+[https://play.google.com/store/apps/details?id=com.isaactong.learningfoodrandomizer](https://play.google.com/store/apps/details?id=com.isaactong.learningfoodrandomizer)
+
 ## About The Project
 An android/iOS app written in Flutter that displays random dishes and foods along with their corresponding cuisines. It works with the [Food Randomizer API](https://github.com/Isaac-Tong/getFood-REST-api), another project that I created that returns a JSON of a random food, which are stored in an updatable mongoDB ATLAS database. Images are feteched using [Bing cognitive services API](https://azure.microsoft.com/en-in/services/cognitive-services/bing-web-search-api/). Project is intended to help me develop backened, frontend, and UI design skills. 
 
